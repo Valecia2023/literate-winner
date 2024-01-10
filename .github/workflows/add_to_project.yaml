@@ -1,0 +1,24 @@
+name: Add bugs to bugs project
+
+on:
+  issues:
+    types:
+      - opened
+  pull_request:
+    types:
+      - opened
+
+permissions:
+  issues: read
+  pull-requests: read
+  repository-projects: write
+
+jobs:
+  add-to-project:
+    name: Add issue to project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@0.4.0
+        with:
+          project-url: https://github.com/orgs/cisagov/projects/31
+          github-token: ${{ secrets.GITHUB_TOKEN }}
