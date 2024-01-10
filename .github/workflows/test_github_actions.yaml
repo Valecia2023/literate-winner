@@ -1,0 +1,16 @@
+name: Test GitHub Actions
+
+on:
+  push:
+    branches:
+    - 'james-test-github-actions'
+
+jobs:
+  run-docker-test:
+    name: Run PSSA Docker Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo code
+        uses: actions/checkout@v3
+      - name: Look at the files
+        run: ls -al
